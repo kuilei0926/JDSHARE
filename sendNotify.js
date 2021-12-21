@@ -132,7 +132,7 @@ let strCKFile = '/ql/scripts/CKName_cache.json';
 let Fileexists = fs.existsSync(strCKFile);
 let TempCK = [];
 if (Fileexists) {
-    console.log("加载sendNotify,检测到别名缓存文件，载入...");
+    // console.log("加载sendNotify,检测到别名缓存文件，载入...");
     TempCK = fs.readFileSync(strCKFile, 'utf-8');
     if (TempCK) {
         TempCK = TempCK.toString();
@@ -143,7 +143,7 @@ let strUidFile = './CK_WxPusherUid.json';
 let UidFileexists = fs.existsSync(strUidFile);
 let TempCKUid = [];
 if (UidFileexists) {
-    console.log("检测到WxPusherUid文件，载入...");
+    // console.log("检测到WxPusherUid文件，载入...");
     TempCKUid = fs.readFileSync(strUidFile, 'utf-8');
     if (TempCKUid) {
         TempCKUid = TempCKUid.toString();
@@ -1565,28 +1565,28 @@ function tgBotNotify(text, desp) {
                     agent
                 });
             }
-            $.post(options, (err, resp, data) => {
-                try {
-                    if (err) {
-                        console.log('telegram发送通知消息失败！！\n');
-                        console.log(err);
-                    } else {
-                        data = JSON.parse(data);
-                        if (data.ok) {
-                            console.log('Telegram发送通知消息成功🎉。\n');
-                        } else if (data.error_code === 400) {
-                            console.log('请主动给bot发送一条消息并检查接收用户ID是否正确。\n');
-                        } else if (data.error_code === 401) {
-                            console.log('Telegram bot token 填写错误。\n');
-                        }
-                    }
-                } catch (e) {
-                    $.logErr(e, resp);
-                }
-                finally {
-                    resolve(data);
-                }
-            });
+            // $.post(options, (err, resp, data) => {
+                // try {
+                    // if (err) {
+                        // console.log('telegram发送通知消息失败！！\n');
+                        // console.log(err);
+                    // } else {
+                        // data = JSON.parse(data);
+                        // if (data.ok) {
+                            // console.log('Telegram发送通知消息成功🎉。\n');
+                        // } else if (data.error_code === 400) {
+                            // console.log('请主动给bot发送一条消息并检查接收用户ID是否正确。\n');
+                        // } else if (data.error_code === 401) {
+                            // console.log('Telegram bot token 填写错误。\n');
+                        // }
+                    // }
+                // } catch (e) {
+                    // $.logErr(e, resp);
+                // }
+                // finally {
+                    // resolve(data);
+                // }
+            // });
         } else {
             resolve();
         }
