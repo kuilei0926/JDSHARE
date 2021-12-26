@@ -62,9 +62,9 @@ const urlSchema = `openjd://virtual?params=%7B%20%22category%22:%20%22jump%22,%2
       if (!$.isLogin) {
         $.msg($.name, `【提示】cookie已失效`, `京东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
 
-        if ($.isNode()) {
-          await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}\n请重新登录获取cookie`);
-        }
+        // if ($.isNode()) {
+          // await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}\n请重新登录获取cookie`);
+        // }
         continue
       }
       message = '';
@@ -113,9 +113,9 @@ async function jdFruit() {
       if ($.farmInfo.treeState === 2 || $.farmInfo.treeState === 3) {
         option['open-url'] = urlSchema;
         $.msg($.name, ``, `【京东账号${$.index}】${$.nickName || $.UserName}\n【提醒⏰】${$.farmInfo.farmUserPro.name}已可领取\n请去京东APP或微信小程序查看\n点击弹窗即达`, option);
-        if ($.isNode()) {
-          await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName || $.UserName}水果已可领取`, `【京东账号${$.index}】${$.nickName || $.UserName}\n【提醒⏰】${$.farmInfo.farmUserPro.name}已可领取\n请去京东APP或微信小程序查看`);
-        }
+        // if ($.isNode()) {
+          // await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName || $.UserName}水果已可领取`, `【京东账号${$.index}】${$.nickName || $.UserName}\n【提醒⏰】${$.farmInfo.farmUserPro.name}已可领取\n请去京东APP或微信小程序查看`);
+        // }
         return
       } else if ($.farmInfo.treeState === 1) {
         console.log(`\n${$.farmInfo.farmUserPro.name}种植中...\n`)
@@ -123,9 +123,9 @@ async function jdFruit() {
         //已下单购买, 但未开始种植新的水果
         option['open-url'] = urlSchema;
         $.msg($.name, ``, `【京东账号${$.index}】 ${$.nickName || $.UserName}\n【提醒⏰】您忘了种植新的水果\n请去京东APP或微信小程序选购并种植新的水果\n点击弹窗即达`, option);
-        if ($.isNode()) {
-          await notify.sendNotify(`${$.name} - 您忘了种植新的水果`, `京东账号${$.index} ${$.nickName || $.UserName}\n【提醒⏰】您忘了种植新的水果\n请去京东APP或微信小程序选购并种植新的水果`);
-        }
+        // if ($.isNode()) {
+          // await notify.sendNotify(`${$.name} - 您忘了种植新的水果`, `京东账号${$.index} ${$.nickName || $.UserName}\n【提醒⏰】您忘了种植新的水果\n请去京东APP或微信小程序选购并种植新的水果`);
+        // }
         return
       }
       await doDailyTask();
@@ -149,7 +149,7 @@ async function jdFruit() {
     console.log(`任务执行异常，请检查执行日志 ‼️‼️`);
     $.logErr(e);
     const errMsg = `京东账号${$.index} ${$.nickName || $.UserName}\n任务执行异常，请检查执行日志 ‼️‼️`;
-    if ($.isNode()) await notify.sendNotify(`${$.name}`, errMsg);
+    // if ($.isNode()) await notify.sendNotify(`${$.name}`, errMsg);
     $.msg($.name, '', `${errMsg}`)
   }
   await showMsg();
@@ -316,9 +316,9 @@ async function doTenWater() {
       option['open-url'] = urlSchema;
       $.msg($.name, ``, `【京东账号${$.index}】${$.nickName || $.UserName}\n【提醒⏰】${$.farmInfo.farmUserPro.name}已可领取\n请去京东APP或微信小程序查看\n点击弹窗即达`, option);
       $.done();
-      if ($.isNode()) {
-        await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName || $.UserName}水果已可领取`, `京东账号${$.index} ${$.nickName || $.UserName}\n${$.farmInfo.farmUserPro.name}已可领取`);
-      }
+      // if ($.isNode()) {
+        // await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName || $.UserName}水果已可领取`, `京东账号${$.index} ${$.nickName || $.UserName}\n${$.farmInfo.farmUserPro.name}已可领取`);
+      // }
     }
   } else {
     console.log('\n今日已完成10次浇水任务\n');
@@ -440,9 +440,9 @@ async function doTenWaterAgain() {
       option['open-url'] = urlSchema;
       $.msg($.name, ``, `【京东账号${$.index}】${$.nickName || $.UserName}\n【提醒⏰】${$.farmInfo.farmUserPro.name}已可领取\n请去京东APP或微信小程序查看\n点击弹窗即达`, option);
       $.done();
-      if ($.isNode()) {
-        await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName || $.UserName}水果已可领取`, `京东账号${$.index} ${$.nickName || $.UserName}\n${$.farmInfo.farmUserPro.name}已可领取`);
-      }
+      // if ($.isNode()) {
+        // await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName || $.UserName}水果已可领取`, `京东账号${$.index} ${$.nickName || $.UserName}\n${$.farmInfo.farmUserPro.name}已可领取`);
+      // }
     }
   } else if (overageEnergy >= 10) {
     console.log("目前剩余水滴：【" + totalEnergy + "】g，可继续浇水");
@@ -468,9 +468,9 @@ async function doTenWaterAgain() {
       option['open-url'] = urlSchema;
       $.msg($.name, ``, `【京东账号${$.index}】${$.nickName || $.UserName}\n【提醒⏰】${$.farmInfo.farmUserPro.name}已可领取\n请去京东APP或微信小程序查看\n点击弹窗即达`, option);
       $.done();
-      if ($.isNode()) {
-        await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName || $.UserName}水果已可领取`, `京东账号${$.index} ${$.nickName || $.UserName}\n${$.farmInfo.farmUserPro.name}已可领取`);
-      }
+      // if ($.isNode()) {
+        // await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName || $.UserName}水果已可领取`, `京东账号${$.index} ${$.nickName || $.UserName}\n${$.farmInfo.farmUserPro.name}已可领取`);
+      // }
     }
   } else {
     console.log("目前剩余水滴：【" + totalEnergy + "】g,不再继续浇水,保留部分水滴用于完成第二天【十次浇水得水滴】任务")
